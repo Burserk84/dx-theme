@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dx-theme</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== والپیپر ===== -->
+<video id="wallVideo" autoplay muted loop playsinline></video>
+<img id="wallImage" alt="">
+<div class="wall-dim"></div>
+
+<!-- ===== پنل شیشه‌ای سمت راست ===== -->
+<aside class="panel" id="panel">
+
+  <!-- ۲۰٪ بالا : ساعت و تاریخ شمسی -->
+  <section class="clock-box">
+    <div class="clock-row">
+      <div class="clock-time">
+        <small id="clockSec">--</small>
+        <span id="clock">--:--</span>
+        <span id="ampm" hidden></span>
+      </div>
+      <button class="clock-fmt" id="clockFmtBtn" title="تغییر فرمت ساعت">۲۴</button>
+    </div>
+    <div class="clock-date" id="dateFa">…</div>
+    <div class="clock-date-en" id="dateEn"></div>
+  </section>
+
+  <!-- ۴۰٪ وسط : لینک‌های دلخواه -->
+  <section class="links-box">
+    <header class="box-head">
+      <h2>لینک‌های من</h2>
+      <div class="box-actions">
+        <button class="mini-btn" id="editLinksBtn" title="حذف لینک">ویرایش</button>
+      </div>
+    </header>
+    <div class="links-grid" id="linksGrid"></div>
+  </section>
+
+  <!-- ۴۰٪ پایین : قیمت لحظه‌ای -->
+  <section class="prices-box">
+    <header class="box-head">
+      <h2>قیمت لحظه‌ای</h2>
+      <div class="box-actions">
+        <button class="mini-btn" id="refreshPrices" title="به‌روزرسانی">↻</button>
+      </div>
+    </header>
+    <div class="price-list" id="priceList"></div>
+    <footer class="prices-foot">
+      <span id="priceUpdated"></span>
+      <a href="https://www.tgju.org" target="_blank" rel="noopener">TGJU</a>
+    </footer>
+  </section>
+
+</aside>
+
+<!-- ===== نوار ابزار شناور والپیپر ===== -->
+<div class="wall-tools" id="wallTools">
+  <label class="tool-btn" title="آپلود عکس یا ویدیو (MP4)">
+    🖼️<input type="file" id="wallFile" accept="image/*,video/mp4,video/webm" hidden>
+  </label>
+  <button class="tool-btn" id="wallRemove" title="حذف والپیپر">🗑️</button>
+  <button class="tool-btn" id="settingsBtn" title="تنظیمات">⚙️</button>
+</div>
+
+<div class="wall-hint" id="wallHint">فایل را بکشید و رها کنید</div>
+<div class="toast" id="toast"></div>
+
+<!-- ===== مودال افزودن لینک ===== -->
+<div class="modal-backdrop" id="linkModal" hidden>
+  <div class="modal">
+    <h3>افزودن لینک</h3>
+    <label>نام
+      <input type="text" id="linkName" placeholder="مثلاً گوگل" maxlength="24">
+    </label>
+    <label>آدرس
+      <input type="text" id="linkUrl" placeholder="google.com" dir="ltr" maxlength="300">
+    </label>
+    <div class="modal-btns">
+      <button class="btn-primary" id="linkSave">ذخیره</button>
+      <button class="btn-ghost" id="linkCancel">انصراف</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== مودال تنظیمات ===== -->
+<div class="modal-backdrop" id="settingsModal" hidden>
+  <div class="modal">
+    <h3>تنظیمات پنل</h3>
+    <label>شفافیت شیشه
+      <input type="range" id="glassRange" min="10" max="95" step="5">
+    </label>
+    <label>میزان بلور
+      <input type="range" id="blurRange" min="0" max="40" step="2">
+    </label>
+    <label class="check-row"><input type="checkbox" id="secCheck"> نمایش ثانیه</label>
+    <div class="modal-btns">
+      <button class="btn-primary" id="settingsClose">بستن</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/jalali.js"></script>
+<script src="js/app.js"></script>
+<script src="js/wall.js"></script>
+</body>
+</html>
